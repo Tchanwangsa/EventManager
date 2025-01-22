@@ -132,6 +132,10 @@ fill:white;
     fill: #f1f1f1;
 }
 
+.dt-layout-row.dt-layout-table {
+    overflow: auto;
+}
+
 input[type="number"]:disabled{
     background-color:white;
 

@@ -22,6 +22,14 @@
 .dot-text {
     margin-right: 5px;
     display: inline-block;
+    font-size: 1rem;
+}
+
+/* Media query for smaller screens (viewport width <= 768px, for example) */
+@media (max-width: 768px) {
+    .dot-text {
+        font-size: 3vw; /* Larger font size on smaller screens */
+    }
 }
 
 .dot {
@@ -31,6 +39,16 @@
     display: inline-block;
     margin-top: 8px;
     margin-right: 5px;
+}
+
+.dot-item {
+    flex-grow: 1;
+    max-width: 5rem;
+}
+
+.store-card {
+    height: 13rem;
+    width: 12rem;
 }
 
 .card-free {
