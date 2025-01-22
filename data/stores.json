@@ -1,6 +1,18 @@
 [
-{"StoreId":"1","StoreName":"Bangkok Store 1","Province":"Bangkok","People":"3"},
-{"StoreId":"2","StoreName":"Bangkok Store 2","Province":"Bangkok","People":"1"},
-{"StoreId":"3","StoreName":"Bangkok Store 3","Province":"Bangkok","People":"2"},
-{"StoreId":"4","StoreName":"Bangkok Store 4","Province":"Bangkok","People":"2"}
+  {"StoreId":"1","StoreName":"Bangkok Store 1","Province":"Bangkok","People":"3"},
+  {"StoreId":"2","StoreName":"Bangkok Store 2","Province":"Bangkok","People":"1"},
+  {"StoreId":"3","StoreName":"Bangkok Store 3","Province":"Bangkok","People":"2"},
+  {"StoreId":"4","StoreName":"Bangkok Store 4","Province":"Bangkok","People":"2"},
+  {"StoreId":"5","StoreName":"Bangkok Store 5","Province":"Bangkok","People":"4"},
+  {"StoreId":"6","StoreName":"Bangkok Store 6","Province":"Bangkok","People":"5"},
+  {"StoreId":"7","StoreName":"Bangkok Store 7","Province":"Bangkok","People":"3"},
+  {"StoreId":"8","StoreName":"Bangkok Store 8","Province":"Bangkok","People":"1"},
+  {"StoreId":"9","StoreName":"Pattaya Store 1","Province":"Pattaya","People":"4"},
+  {"StoreId":"10","StoreName":"Pattaya Store 2","Province":"Pattaya","People":"2"},
+  {"StoreId":"11","StoreName":"Pattaya Store 3","Province":"Pattaya","People":"1"},
+  {"StoreId":"12","StoreName":"Pattaya Store 4","Province":"Pattaya","People":"2"},
+  {"StoreId":"13","StoreName":"Pattaya Store 5","Province":"Pattaya","People":"3"},
+  {"StoreId":"14","StoreName":"Pattaya Store 6","Province":"Pattaya","People":"4"},
+  {"StoreId":"15","StoreName":"Pattaya Store 7","Province":"Pattaya","People":"1"},
+  {"StoreId":"16","StoreName":"Pattaya Store 8","Province":"Pattaya","People":"2"}
 ]

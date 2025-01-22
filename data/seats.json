@@ -1,1 +1,51 @@
-[]
+[
+    {
+        "SeatId": "1",
+        "StoreId": "4",
+        "Seat": "2",
+        "ReserveSeat": "0",
+        "TableId": "1"
+    },
+    {
+        "SeatId": "2",
+        "StoreId": "3",
+        "Seat": "2",
+        "ReserveSeat": "0",
+        "TableId": "1"
+    },
+    {
+        "SeatId": "3",
+        "StoreId": "10",
+        "Seat": "2",
+        "ReserveSeat": "0",
+        "TableId": "5"
+    },
+    {
+        "SeatId": "4",
+        "StoreId": "16",
+        "Seat": "2",
+        "ReserveSeat": "0",
+        "TableId": "5"
+    },
+    {
+        "SeatId": "5",
+        "StoreId": "13",
+        "Seat": "3",
+        "ReserveSeat": "0",
+        "TableId": "11"
+    },
+    {
+        "SeatId": "6",
+        "StoreId": "15",
+        "Seat": "1",
+        "ReserveSeat": "0",
+        "TableId": "11"
+    },
+    {
+        "SeatId": "7",
+        "StoreId": "12",
+        "Seat": "2",
+        "ReserveSeat": "0",
+        "TableId": "11"
+    }
+]
