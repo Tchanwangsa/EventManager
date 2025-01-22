@@ -14,25 +14,30 @@ function get_event_id() {
 function load_event_data() {
     // Get the EventId from the URL
     var eventId = get_event_id()
-    
+
     const eventData = JSON.parse(localStorage.getItem('eventData'));
     var event = eventData.find(e => e.EventId == eventId);
     if (event) {
-        // // Populate the event total stores
-        // var totalStores = response.totalStores;
-        // var numRegistered = response.numRegistered;
-        // document.getElementById("event-total-stores").innerText = `Total Attending: ${numRegistered}`;
+        var stores = load_event_stores();
+        var numRegistered = stores.length;
+        
+        var eventProvince = event.province;
+        var storeData = JSON.parse(localStorage.getItem('storeData')) || [];
+        var totalStores = storeData.filter(store => store.province === eventProvince).length;
 
-        // //calculate percentage of stores registered
+        document.getElementById("event-total-stores").innerText = `Total Attending: ${numRegistered}`;
         
-        // var percentageRegistered = (numRegistered / totalStores) * 100;
-        // document.getElementById("event-registered-stores").innerText = `Registered: ${percentageRegistered.toFixed(2)}%`;
+        //calculate percentage of stores registered
+
+        var percentageRegistered = (numRegistered / totalStores) * 100;
+        document.getElementById("event-registered-stores").innerText = `Registered: ${percentageRegistered.toFixed(2)}%`;
         
-        // //calculate percentage of stores that have not registered
-        // var numNotRegistered = totalStores-numRegistered;
-        // var percentagNotRegistered = (numNotRegistered / totalStores)*100;
-        // document.getElementById("event-total-stores-not").innerText = `Total Not Attending: ${numNotRegistered}`;
-        // document.getElementById("event-Not-registered-stores").innerText = `Registered: ${percentagNotRegistered.toFixed(2)}%`;
+        //calculate percentage of stores that have not registered
+        var numUnregistered = totalStores - numRegistered;
+
+        var percentagNotRegistered = (numUnregistered / totalStores)*100;
+        document.getElementById("event-total-stores-not").innerText = `Total Not Attending: ${numUnregistered}`;
+        document.getElementById("event-Not-registered-stores").innerText = `Unregistered: ${percentagNotRegistered.toFixed(2)}%`;
 
         // Populate the event info
         document.getElementById("event-name").innerText = event.EventName;
@@ -44,7 +49,6 @@ function load_event_data() {
         // Populate the event layout info
         document.getElementById("event-layout").innerText = `${event.NumberOfRows} x ${event.NumberOfCols}: ${numTables} Tables`;
         
-        document.getElementById("event-data").value = JSON.stringify(event);
         load_tables()
     } else {
         console.log(response.message);
@@ -130,10 +134,6 @@ function load_tables() {
             reject("Event not found.");
             return;
         }
-
-        // Retrieve the JSON string from the hidden input
-        var eventDataJson = document.getElementById("event-data").value;
-        var event = JSON.parse(eventDataJson);
         
         // Get the number of rows and columns
         var numRows = event.NumberOfRows;
@@ -143,10 +143,6 @@ function load_tables() {
         tableLayout.innerHTML = ''; // Clear previous content
         let tableDetails = JSON.parse(localStorage.getItem('tableDetails'));
         if (tableDetails) {
-            
-            // Store table data in the div with id "table-data"
-            let tableDataDiv = document.getElementById('table-data');
-            tableDataDiv.innerHTML = JSON.stringify(tableDetails, null, 2);
             
             for (let row = 0; row < numRows; row++) {
                 // Create a new row div
@@ -309,8 +305,7 @@ function load_edit(tableId) {
         clone.querySelector('#store-card-seat').textContent = `${store.Seats} seats`;
         clone.querySelector('#store-card-rseat').textContent = `reserved: ${store.ReserveSeats}`;
 
-        let tableDataDiv = document.getElementById('table-data');
-        let tables = JSON.parse(tableDataDiv.textContent);
+        let tables = JSON.parse(localStorage.getItem('tableDetails'));
         let table = tables.find(t => t.TableId == store.TableId);
         let freeSeats = table.FreeSeats;
        
@@ -354,6 +349,7 @@ function load_edit(tableId) {
 }
 
 function load_event_stores() {
+    console.log("TEST");
     var eventId = get_event_id();
     var eventData = JSON.parse(localStorage.getItem('eventData'));
     var event = eventData.find(e => e.EventId == eventId);
@@ -607,13 +603,12 @@ function edit_store_submit() {
 function edit_success(tableID,storeID,reserveSeat) {
     // edit message
     // console.log('edit sucess')
-    let tableDataDiv = document.getElementById('table-data');
-        let tables = JSON.parse(tableDataDiv.textContent);
-        let table = tables.find(t => t.TableId == tableID);
-        let tableName = table.TableName;
-        $('#successModal').modal('show');
-        document.getElementById("success-dialog").innerHTML = "Store Edited";
-        document.getElementById("success-info").innerHTML = "Store " + storeID +" now has " + reserveSeat +  " reserved seats";
+    let tables = JSON.parse(localStorage.getItem('tableDetails'));
+    let table = tables.find(t => t.TableId == tableID);
+    let tableName = table.TableName;
+    $('#successModal').modal('show');
+    document.getElementById("success-dialog").innerHTML = "Store Edited";
+    document.getElementById("success-info").innerHTML = "Store " + storeID +" now has " + reserveSeat +  " reserved seats";
     edit_refresh(tableID);
 }
 
@@ -813,8 +808,7 @@ function move_success(currentTableID, newTableID) {
 
 function disable_table(tableID) {
     $('#disableModal').modal('show');
-    let tableDataDiv = document.getElementById('table-data');
-    let tables = JSON.parse(tableDataDiv.textContent);
+    let tables = JSON.parse(localStorage.getItem('tableDetails'));
     let table = tables.find(t => t.TableId == tableID);
     document.getElementById("disable-btn").setAttribute('onclick', `disable_confirm('${tableID}','${table.TableName}')`);
     document.getElementById("disable-tableID").innerHTML = table.TableName;
@@ -883,8 +877,7 @@ function enable_table(tableID) {
 function lock_table(tableID) {
     //lock the table from being changed and edited
     $('#lockModal').modal('show');
-    let tableDataDiv = document.getElementById('table-data');
-    let tables = JSON.parse(tableDataDiv.textContent);
+    let tables = JSON.parse(localStorage.getItem('tableDetails'));
     let table = tables.find(t => t.TableId == tableID);
     document.getElementById("lock-btn").setAttribute('onclick', `lock_confirm('${tableID}','${table.TableName}')`);
     document.getElementById("lock-tableID").innerHTML = table.TableName;
