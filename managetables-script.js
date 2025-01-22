@@ -21,23 +21,22 @@ function load_event_data() {
         var stores = load_event_stores();
         var numRegistered = stores.length;
         
-        var eventProvince = event.province;
+        var eventProvince = event.Province;
         var storeData = JSON.parse(localStorage.getItem('storeData')) || [];
-        var totalStores = storeData.filter(store => store.province === eventProvince).length;
-
+        var filteredStores = storeData.filter(store => store.Province === eventProvince);
+        var totalStores = filteredStores.length;
         document.getElementById("event-total-stores").innerText = `Total Attending: ${numRegistered}`;
         
         //calculate percentage of stores registered
-
         var percentageRegistered = (numRegistered / totalStores) * 100;
-        document.getElementById("event-registered-stores").innerText = `Registered: ${percentageRegistered.toFixed(2)}%`;
+        document.getElementById("event-registered-stores").innerText = `${percentageRegistered.toFixed(2)}%`;
         
         //calculate percentage of stores that have not registered
         var numUnregistered = totalStores - numRegistered;
 
-        var percentagNotRegistered = (numUnregistered / totalStores)*100;
+        var percentagNotRegistered = (numUnregistered / totalStores) * 100;
         document.getElementById("event-total-stores-not").innerText = `Total Not Attending: ${numUnregistered}`;
-        document.getElementById("event-Not-registered-stores").innerText = `Unregistered: ${percentagNotRegistered.toFixed(2)}%`;
+        document.getElementById("event-Not-registered-stores").innerText = `${percentagNotRegistered.toFixed(2)}%`;
 
         // Populate the event info
         document.getElementById("event-name").innerText = event.EventName;
@@ -349,7 +348,6 @@ function load_edit(tableId) {
 }
 
 function load_event_stores() {
-    console.log("TEST");
     var eventId = get_event_id();
     var eventData = JSON.parse(localStorage.getItem('eventData'));
     var event = eventData.find(e => e.EventId == eventId);
