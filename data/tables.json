@@ -1,0 +1,15 @@
+[
+    {"TableId":"1","TableName":"A1","Nickname":"","Status":"1","EventId":"1"},
+    {"TableId":"2","TableName":"A2","Nickname":"","Status":"1","EventId":"1"},
+    {"TableId":"3","TableName":"B1","Nickname":"","Status":"1","EventId":"1"},
+    {"TableId":"4","TableName":"B2","Nickname":"","Status":"1","EventId":"1"},
+    {"TableId":"5","TableName":"A1","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"6","TableName":"A2","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"7","TableName":"A3","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"8","TableName":"B1","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"9","TableName":"B2","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"10","TableName":"B3","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"11","TableName":"C1","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"12","TableName":"C2","Nickname":"","Status":"1","EventId":"2"},
+    {"TableId":"13","TableName":"C3","Nickname":"","Status":"1","EventId":"2"}
+]

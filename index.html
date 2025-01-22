@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Manager</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- custom style -->
+ <link rel="stylesheet" href="custom.css"> 
+ <!-- Datatables -->
+ <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" rel="stylesheet">
+ <!-- Bootstrap -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<!--
+`body` tag options:
+
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
+<body class="sidebar-mini sidebar-closed prae">
+<div class="wrapper">
+  <!-- Navbar -->
+ <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="ocean1 bg-white main-header navbar navbar-expand navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link"><strong>Event Manager</strong></a>
+      </li>
+     
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+   
+    <!-- Sidebar user panel -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon>
+        </div>
+
+      </div>
+   
+      <div class="dropdown">
+        <a class="btn dropdown-toggle " style="margin-right: 80px; margin-top:15px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         User
+         </a>
+
+    <ul class="dropdown-menu ">
+      <li><a class="dropdown-item tive3" href="#">Edit Profile</a></li>
+      <li><a class="dropdown-item tive3" href="#">Sign out</a></li>
+      <li><a class="dropdown-item tive3" href="#">Settings</a></li>
+    </ul>
+  </div>
+      
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+
+<!-- Sidebar -->
+<aside class="main-sidebar sidebar-light-primary ">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link ocean1 ew">
+      <img src="logo.png" alt="AdminLTE Logo" style="opacity: .8;padding-left: 10px;" height="50.67px">
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar prae ocean">
+      
+      <!-- Sidebar Menu -->
+      <nav class="mt-2 ">
+        <ul class="family nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+               <li class="nav-header family"><strong>We Are Family</strong></li>
+          <li class="nav-item tive">
+            <a href="index.html" class="nav-link tive">
+              <i class="nav-icon fas fa-calendar-alt "></i>
+              <p>
+                Manage Event
+              </p>
+            </a>
+          </li>
+        
+          
+          <li class="nav-item fontclr" id='sidebar-events'>
+            <a class="nav-link fontclr">
+            <i class="nav-icon fas fa-solid fa-users"></i>
+              <p>
+                Manage Tables
+                <ion-icon name="chevron-down-outline" class="pad-left"></ion-icon>
+              </p>
+            </a>
+            <ul class="nav nav-treeview fontclr">
+              <li class="nav-item fontclr">
+                <a class="nav-link fontclr">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Loading </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav-item fontclr">
+            <a class="nav-link fontclr">
+              <i class="nav-icon fas fa-solid fa-folder"></i>
+              <p>
+                Project Plan
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+
+<!--main body-->
+<div class="main content-wrapper px-3 pt-5 prae" style="overflow: auto;">
+  <!-- Main content -->
+  <section class="content" style="overflow: auto;">
+      <div class="container-fluid">
+          <table id="eventsTable" class="display" style="width:100%" cellspacing="0">
+            
+              <div class="container">
+              <div class="row">
+                <form class="col-md-4">
+                  <div class="input-group paddingno">
+                  <div class="input-group-prepend ">
+                    <span class="input-group-text custom-search" id="basic-addon1">Search by Province: </span>
+                  </div>
+                  <select class="form-control select2 sizing-control" style="border: 1px solid #aaa; border-radius: 3px;">
+                  
+                    <option>Province</option>
+                    <option>Bangkok</option>
+                    <option>Pattaya</option>
+                    <option>ChiangMai</option>
+                    <option>Surat Thani</option>
+                    <option>Rayong</option>
+                  </div>
+                  </select>
+                </form>
+              </div>
+              </div>
+             
+
+              <thead>
+                  <tr>
+                      <th>Order</th>
+                      <th>Event Name</th>
+                      <th>Event Date</th>
+                      <th>Stores</th>
+                      <th>Province</th>
+                      <th>Location</th>
+                      <th>Status</th>
+                      <th data-dt-order="disable"></th>
+                  </tr>
+              </thead>
+              <tbody id="eventsTableBody">
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <th>Order</th>
+                      <th>Event Name</th>
+                      <th>Event Date</th>
+                      <th>Stores</th>
+                      <th>Province</th>
+                      <th>Location</th>
+                      <th>Status</th>
+                      <th></th>
+                  </tr>
+              </tfoot>
+          </table>
+      </div>
+  </section>  
+</div>
+<div class="container">
+</div>
+<!--/.main body-->
+
+<!-- Modals -->
+ <!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editEventId" name="editEventId" value="">
+        <form id="editForm">
+        <div class="mb-3">
+                <label for="inputEditName" class="form-label">Event Name</label>
+                <div class="input-group mb-3">
+                    <input class="form-control" id="inputEditName" aria-describedby="inputEditName" required>
+                    <input type="radio" class="btn-check edit-status" name="edit-status" id="edit-success-outlined" value="1" autocomplete="off" checked>
+                    <label class="btn btn-outline-tive" for="edit-success-outlined">Active</label>
+                    <input type="radio" class="btn-check edit-status" name="edit-status" id="edit-danger-outlined" value="0" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="edit-danger-outlined">Inactive</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="inputEditDate" class="form-label">Event Start Date</label>
+                        <!-- Date picker -->
+                        <input type="datetime-local" class="form-control" id="inputEditStartDate" aria-describedby="inputEditDate" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="inputEditEndDate" class="form-label">Event End Date</label>
+                        <!-- Date picker -->
+                        <input type="datetime-local" class="form-control" id="inputEditEndDate" aria-describedby="inputEditEndDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class='row'>
+                    <div class="col">
+                        <label for="inputEditStores" class="form-label">People</label>
+                        <input type="number" class="form-control" id="inputEditStores" aria-describedby="inputEditDate" required disabled>
+                    </div>
+                    <div class='col'>
+                      <label for="inputEditSeats" class="form-label">Seats Per Table</label>
+                      <input type="number" class="form-control" id="inputEditSeats" aria-describedby="inputEditSeats" required disabled>
+                    </div>
+                    <div class='col'>
+                        <label for="inputEditTables" class="form-label">Tables Needed</label>
+                        <input class="form-control" id="inputEditTables" type="text" value = "" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="inputEditRows" class="form-label">Rows</label>
+                    </div>
+                    <div class="col">
+                    <label for="inputEditCols" class="form-label">Columns</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="inputEditRows" class="form-control" disabled>
+                    <input type="number" id="inputEditCols" class="form-control" disabled>
+                    <span class="input-group-text" style="width: 95px;" id="edit-available-indicator">Tables:&nbsp; <span id="edit-tables-available"> - </span></span>
+                </div>
+                <p>* Edit table details in the table manager.</p>
+            </div>
+            <div class="mb-3">
+                <label for="inputEditLocation" class="form-label">Location</label>
+                <input type="text" class="form-control" id="inputEditLocation" aria-describedby="inputEditLocation" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputEditProvince" class="form-label">Province</label>
+                <div class="input-group mb-3">
+                <select class="form-select" id="inputEditProvince" aria-describedby="inputEditProvince" required>
+                    <option selected value="">---</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="Chiang Mai">Chiang Mai</option>
+                    <option value="Pattaya">Pattaya</option>
+                </select>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary tive0" data-bs-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-primary tive1" id="create-btn">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fontclr" id="exampleModalLabel">Create Event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="eventForm">
+            <div class="mb-3">
+                <label for="inputCreateName" class="form-label">Event Name</label>
+                <div class="input-group mb-3"> 
+                    <input class="form-control" id="inputCreateName" aria-describedby="inputCreateName" placeholder="Input Event Name"required>
+                    <input type="radio" class="btn-check create-status" name="create-status" id="create-success-outlined" value="1" autocomplete="off" checked>
+                    <label class="btn btn-outline-tive" for="create-success-outlined">Active</label>
+                    <input type="radio" class="btn-check create-status" name="create-status" id="create-danger-outlined" value="0" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="create-danger-outlined">Inactive</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="inputCreateStartDate" class="form-label">Event Start Date</label>
+                        <!-- Date picker -->
+                        <input type="datetime-local" class="form-control" id="inputCreateStartDate" aria-describedby="inputCreateStartDate" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="inputCreateEndDate" class="form-label">Event End Date</label>
+                        <!-- Date picker -->
+                        <input type="datetime-local" class="form-control" id="inputCreateEndDate" aria-describedby="inputCreateEndDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class='row'>
+                    <div class="col">
+                        <label for="inputCreateStores" class="form-label" >People</label>
+                        <input type="number" class="form-control" id="inputCreateStores" aria-describedby="inputCreateDate" placeholder="# of People"required>
+                    </div>
+                    <div class='col'>
+                      <label for="inputCreateSeats" class="form-label">Seats Per Table</label>
+                      <input type="number" class="form-control" id="inputCreateSeats" aria-describedby="inputCreateSeats" placeholder="# of Seats"required>
+                    </div>
+                    <div class='col'>
+                        <label for="inputCreateTables" class="form-label">Tables Needed</label>
+                        <input class="form-control" id="inputCreateTables" type="text" value = "" placeholder="# of tables" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="inputCreateRows" class="form-label">Rows</label>
+                    </div>
+                    <div class="col">
+                    <label for="inputCreateCols" class="form-label">Columns</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="inputCreateRows" class="form-control" placeholder="# of Rows">
+                    <input type="number" id="inputCreateCols" class="form-control" placeholder="# of Columns">
+                    <span class="input-group-text" style="width: 95px;" id="create-available-indicator">Tables:&nbsp; <span id="create-tables-available"> - </span></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputCreateLocation" class="form-label">Location</label>
+                <input type="text" class="form-control" id="inputCreateLocation" aria-describedby="inputCreateLocation" placeholder="Address"required>
+            </div>
+            <div class="mb-3">
+                <label for="inputCreateProvince" class="form-label">Province</label>
+                <div class="input-group mb-3">
+                <select class="form-select" id="inputCreateProvince" aria-describedby="inputCreateProvince" required>
+                    <option selected value="">---</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="Chiang Mai">Chiang Mai</option>
+                    <option value="Pattaya">Pattaya</option>
+                </select>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary tive0" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary tive1" id="create-btn">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="d-flex justify-content-center align-items-center mb-3 mt-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(65, 214, 194, 0.84)" class="bi bi-check-circle" viewBox="0 0 16 16" style="width: 200px; height: 200px;">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                    </svg>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <label class="modal-title fs-5" id="success-dialog">-</label>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mb-2">
+                    <p id="success-info">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Account</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Delete Event '<span id="delete-event-name">-</span>'?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary tive0" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" id = "confirmDeleteButton" class="btn btn-primary tive1" onclick="delete_event()" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--/.wrapper-->
+<!-- jQuery -->
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.css" rel="stylesheet"/>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js"></script>
+
+<!-- Datatables -->
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/0ca0bc8f88.js" crossorigin="anonymous"></script>
+
+<!--IONIC-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- JAVASCRIPT -->
+<script src="scripts.js"></script>
+<script type="application/json" id="eventData"></script>
+</body>
+</html>

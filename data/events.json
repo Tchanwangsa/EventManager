@@ -1,0 +1,30 @@
+[
+    {
+        "EventId":"1",
+        "EventName":"Sample Event",
+        "EventDateTime":"2025-01-25T10:00",
+        "EventDateTimeEnd":"2025-01-25T15:00",
+        "StoreTotal":"10",
+        "NumberOfSeats":"4",
+        "NumberOfRows":"2",
+        "NumberofTables":"3",
+        "NumberOfCols":"2",
+        "EventLocation":"Address",
+        "Province":"Bangkok",
+        "Status":"1"
+        },
+    {
+        "EventId":"2",
+        "EventName":"Pattaya Meeting",
+        "EventDateTime":"2025-03-25T15:00",
+        "EventDateTimeEnd":"2025-03-25T17:00",
+        "StoreTotal":"50",
+        "NumberOfSeats":"8",
+        "NumberOfRows":"3",
+        "NumberofTables":"7",
+        "NumberOfCols":"3",
+        "EventLocation":"Meeting Venue",
+        "Province":"Pattaya",
+        "Status":"1"
+    }
+]

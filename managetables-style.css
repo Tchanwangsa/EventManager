@@ -1,0 +1,163 @@
+
+
+@font-face {
+    font-family: "My Custom Font";
+    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+}
+
+
+.dot-free {
+    background-color: rgb(15, 236, 15);
+}
+.dot-available {
+    background-color: rgb(236, 236, 15);
+}
+.dot-available-half {
+    background-color: rgb(230, 43, 43);
+}
+.dot-full {
+    background-color: rgb(171, 173, 171);
+}
+
+.dot-text {
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.card-free {
+    background-color: rgb(159, 230, 159) !important;
+   
+}
+
+#table-name{
+    color: white !important;
+    text-shadow: 0 0 2px #000;;
+}
+
+.card-free .card-header {
+    background-color: rgb(100, 179, 100);
+}
+.card-free .dropdown-toggle {
+    fill: green;
+}
+.card-free .card-body{
+    color: rgb(100, 179, 100)!important;
+}
+
+.card-available-half {
+    background-color:  rgb(241, 154, 154) !important; 
+    border:  4px double rgb(236, 71, 71)!important;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.card-available-half .sha {
+    background-color:  rgb(241, 154, 154) !important; 
+    border:  4px solid rgb(236, 71, 71)!important;
+}
+
+.card-available-half .card-header{
+    background-color: rgb(230, 43, 43)!important;
+    border-bottom:  4px double rgb(241, 154, 154)!important;
+}
+.card-available-half .card-body{
+    color:rgb(230, 43, 43)!important;
+}
+.card-available-half .dropdown-toggle{
+    fill:rgb(160, 14, 14)!important;
+}
+
+.card-available {
+    background-color:  rgb(241, 235, 154) !important; 
+}
+.card-available .card-header{
+    background-color: rgb(239, 201, 12)!important;
+}
+.card-available .card-body{
+    color:rgb(239, 201, 12)!important;
+}
+.card-available .dropdown-toggle{
+    fill:darkgoldenrod!important;
+}
+
+.card-full .card-body{
+    color:rgb(150, 150, 150)!important;
+}
+.card-full {
+    background-color: rgb(230, 236, 230)!important   ; 
+}
+
+.card-full .card-header{
+    background-color: rgb(150, 150, 150)!important;
+}
+.card-full .dropdown-toggle{
+    fill:rgb(81, 81, 81)!important;
+}
+
+.table-indicator {
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.table-message {
+    font-weight: 500;
+}
+
+.table-edit.modal-title {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.table-edit.modal-text {
+    font-size: 15px;
+    font-weight: 400;
+    display: inline-block;
+    padding-left: 5px;
+}
+
+#event-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info-line {
+    display: flex;
+    align-items: center;
+}
+
+.event-info-label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+.table-free{
+    border: solid 1px rgba(65, 214, 194, 0.84) !important;
+}
+.table-full{
+    border: solid 1px rgba(240, 65, 65, 0.84) !important;
+}
+
+
+.table-full .bi-person{
+    fill: rgba(240, 65, 65, 0.84) !important;
+}
+
+
+.table-free .bi-person{
+    fill: rgba(65, 214, 194, 0.84) !important;
+}
+.sha{
+    text-shadow: 0 0 4px #000;
+}
+.event-info-line{
+    padding-bottom: 10px;
+}
