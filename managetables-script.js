@@ -191,7 +191,7 @@ function load_tables() {
                                     clone.querySelector('.card').classList.add('card-full');
                                 } else if (total == event.NumberOfSeats) {
                                     clone.querySelector('.card').classList.add('card-free');
-                                } else if (total <= (event.NumberOfSeats / 2)) {
+                                } else if (total === Math.floor(event.NumberOfSeats / 2)) {
                                     clone.querySelector('.card').classList.add('card-available-half');
                                 } else {
                                     clone.querySelector('.card').classList.add('card-available');
