@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    load_tables();
     load_event_data();
     load_sidebar_events();
     load_table_display();
